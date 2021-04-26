@@ -32,7 +32,7 @@ public interface IArticleService {
      * @param tag 文章标签
      * @return 返回对应的数据
      */
-    List<Article> findByAll(int page, int size,String tag);
+    Object findByAll(int page, int size,String tag);
 
 
     /**

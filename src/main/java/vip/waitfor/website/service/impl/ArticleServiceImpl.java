@@ -45,11 +45,11 @@ public class ArticleServiceImpl implements IArticleService {
     }
 
     @Override
-    public List<Article> findByAll(int page, int size,String tag) {
+    public Object findByAll(int page, int size,String tag) {
         PageHelper.startPage(page, size);
         List<Article> datalist = findAll(tag);
         PageInfo<Article> pageInfo = new PageInfo(datalist);
-        return datalist;
+        return pageInfo;
     }
 
     @Override

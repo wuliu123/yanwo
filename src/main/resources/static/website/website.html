@@ -39,7 +39,7 @@
                 <ul id="starlist">
                     <li><a href="website.html">首页</a></li>
                     <li><a href="list.html">燕窝做法</a></li>
-                    <li><a href="list3.html">燕窝百科</a></li>
+                    <li><a href="list2.html">燕窝百科</a></li>
                     <li><a href="about.html">关于我</a></li>
                 </ul>
             </nav>
@@ -346,7 +346,7 @@
         function findnowarticle() {
             $.ajax({
                 "url": "../article/findpractice",
-                "type": "GET",
+                "type": "POST",
                 "data": {
                     page:  1,
                     size: 5,
@@ -354,7 +354,7 @@
                 },
                 "datatype": "json",
                 "success": function(json) {
-                    var result = json.data
+                    var result = json.data.list
                     console.log(result)
                     $("#list").empty();
                     $("#ywzf").empty();
@@ -391,7 +391,7 @@
         function findnbai() {
             $.ajax({
                 "url": "../article/findpractice",
-                "type": "GET",
+                "type": "POST",
                 "data": {
                     page:  1,
                     size: 5,
@@ -399,7 +399,7 @@
                 },
                 "datatype": "json",
                 "success": function(json) {
-                    var result = json.data
+                    var result = json.data.list
                     console.log(result)
                     $("#bailist").empty();
                     $("#baiywzf").empty();

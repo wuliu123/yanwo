@@ -57,29 +57,29 @@ public class ArticleController extends BaseController{
     private IArticleService iArticleService;
 
 
-    @PostMapping("/find")
+    @RequestMapping("/find")
     public ResponseResult<Object> findAllGoods(@RequestParam(value = "page",defaultValue = "1") int page, @RequestParam(value = "size",defaultValue = "10") int size) {
         Object Article = this.iArticleService.findArticle(page, size);
-        return new ResponseResult(SUCCESS, Article);
+        return new ResponseResult<Object>(SUCCESS, Article);
     }
 
-    @GetMapping("/findpractice")
-    public ResponseResult<List<Article>> findPractice(@RequestParam(value = "page",defaultValue = "1") int page, @RequestParam(value = "size",defaultValue = "10") int size,String tag) {
-        List<Article> data = iArticleService.findByAll(page, size, tag);
-        return new ResponseResult(SUCCESS, data);
+    @RequestMapping("/findpractice")
+    public ResponseResult<Object> findPractice(@RequestParam(value = "page",defaultValue = "1") int page, @RequestParam(value = "size",defaultValue = "10") int size,String tag) {
+        Object Article = this.iArticleService.findByAll(page, size, tag);
+        return new ResponseResult<Object>(SUCCESS, Article);
     }
 
 
     @GetMapping("/findHotlist")
     public ResponseResult<List<Article>> findHotlist() {
         List<Article> data = iArticleService.findAllHotlist();
-        return new ResponseResult(SUCCESS, data);
+        return new ResponseResult<List<Article>>(SUCCESS, data);
     }
 
     @PostMapping("/findOne")
     public ResponseResult<Article> findAricle(Integer wid) {
         Article data = iArticleService.find(wid);
-        return new ResponseResult(SUCCESS, data);
+        return new ResponseResult<Article>(SUCCESS, data);
     }
 
 
