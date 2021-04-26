@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="vip.waitfor.website.mapper.ArticleMapper">
+
+	<!-- 插入文章数据 -->
+	<!--Integer insert(Article article);-->
+	<insert id="insert"
+			useGeneratedKeys="true"
+			keyProperty="wid">
+		INSERT INTO article (
+			wid,uid,title,tag,
+			introduction,conten,cover,
+			is_delete,Hotlist,mun,commentID,
+			created_user, created_time,
+			modified_user, modified_time
+		) VALUES (
+			#{wid},#{uid},#{title},#{tag},
+			#{introduction},#{conten},#{cover},
+			#{isDelete},#{Hotlist},#{mun},#{commentID},
+			#{createdUser}, #{createdTime},
+			#{modifiedUser}, #{modifiedTime}
+		)
+	</insert>
+
+
+	<!-- 查询所有文章 -->
+	<!-- List<Article> findAllArticle();-->
+	<select id="findAllArticle"
+			resultType="vip.waitfor.website.entity.Article">
+		SELECT
+			wid,uid,title,tag,
+			introduction,conten,cover,
+			is_delete AS isDelete,
+			Hotlist,mun,commentID,
+			created_user AS createdUser,
+			created_time AS createdTime,
+			modified_user AS modifiedUser,
+			modified_time AS modifiedTime
+		FROM
+			article
+		ORDER BY createdTime DESC
+	</select>
+
+
+	<!-- 根据wid查询文章 -->
+	<!-- Article findArticle(Integer wid);-->
+	<select id="findArticle"
+			resultType="vip.waitfor.website.entity.Article">
+		SELECT
+			wid,uid,title,tag,
+			introduction,conten,cover,
+			is_delete AS isDelete,
+			Hotlist,mun,commentID,
+			created_user AS createdUser,
+			created_time AS createdTime,
+			modified_user AS modifiedUser,
+			modified_time AS modifiedTime
+		FROM
+			article
+		WHERE
+			wid=#{wid}
+	</select>
+
+
+	<!-- 查询燕窝做法所有文章 -->
+	<!-- List<Article>  findAll(String tag);-->
+	<select id="findAll"
+			resultType="vip.waitfor.website.entity.Article">
+		SELECT
+			wid,uid,title,tag,
+			introduction,conten,cover,
+			is_delete AS isDelete,
+			Hotlist,mun,commentID,
+			created_user AS createdUser,
+			created_time AS createdTime,
+			modified_user AS modifiedUser,
+			modified_time AS modifiedTime
+		FROM
+			article
+		WHERE
+			tag= #{tag}
+		ORDER BY createdTime DESC
+	</select>
+
+
+	<!-- 查询热榜文章 -->
+	<!-- List<Article>  findHotlist();-->
+	<select id="findHotlist"
+			resultType="vip.waitfor.website.entity.Article">
+		SELECT
+			wid,uid,title,tag,
+			introduction,conten,cover,
+			is_delete AS isDelete,
+			Hotlist,mun,commentID,
+			created_user AS createdUser,
+			created_time AS createdTime,
+			modified_user AS modifiedUser,
+			modified_time AS modifiedTime
+		FROM
+			article
+		WHERE
+			Hotlist = 1
+		ORDER BY createdTime DESC
+	</select>
+
+
+	<!-- 修改文章 -->
+	<!-- Integer updateArticle(Article article); -->
+	<update id="updateArticle">
+		UPDATE
+			article
+		SET
+			title=#{title},
+			tag=#{tag},
+			introduction=#{introduction},
+			conten=#{conten},
+			cover=#{cover},
+			created_user =#{createdUser},
+			created_time =#{createdTime},
+			modified_user=#{modifiedUser},
+			modified_time=#{modifiedTime}
+		WHERE
+			wid=#{wid}
+	</update>
+
+	<!-- 根据id删除图片信息 -->
+	<!-- Integer deleteById(Integer id) -->
+	<delete id="deleteById">
+		DELETE FROM
+			article
+		WHERE
+			wid=#{wid}
+	</delete>
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

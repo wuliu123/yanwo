@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>网站管理系统后台v1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../assets/images/favicon.png">
+    <!-- App css -->
+    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" />
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+</head>
+
+<body class="auth-fluid-pages pb-0">
+    <div class="auth-fluid">
+        <!--Auth fluid left content -->
+        <div class="auth-fluid-form-box">
+            <div class="align-items-center d-flex h-100">
+                <div class="card-body">
+                    <!-- Logo -->
+                    <div class="auth-brand text-center text-lg-left">
+                        <h4>网站管理系统后台v1</h4>
+                    </div>
+                    <!-- title-->
+                    <h4 class="mt-0">登录</h4>
+                    <p class="text-muted mb-4">输入您的电子邮件地址和密码以访问账户</p>
+                    <!-- form -->
+                    <form id="form-login">
+                        <div class="form-group">
+                            <label for="emailaddress">用户名</label>
+                            <input name="username" class="form-control" type="email" id="emailaddress" required="" placeholder="输入你的用户名">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">密码</label>
+                            <input name="password" class="form-control" type="password" required="" id="password" placeholder="输入你的密码">
+                        </div>
+                        <div class="form-group mb-0 text-center">
+                            <button id="loginBtn" class="btn btn-primary btn-block" type="button"><i class="mdi mdi-login"></i> 登录 </button>
+                        </div>
+                    </form>
+                    <!-- end form-->
+                    <!-- Footer-->
+                    <footer class="footer footer-alt">
+                        <p class="text-muted">没有账号，前往注册 →<a href="admin-reg.html" class="text-muted ml-1"><b>注册</b></a></p>
+                    </footer>
+                </div>
+                <!-- end .card-body -->
+            </div>
+            <!-- end .align-items-center.d-flex.h-100-->
+        </div>
+        <!-- end auth-fluid-form-box-->
+
+        <!-- Auth fluid right content -->
+        <div class="auth-fluid-right text-center">
+            <div class="auth-user-testimonial">
+                <h2 class="mb-3">I love the color!</h2>
+                <p class="lead"><i class="mdi mdi-format-quote-open"></i> It's a elegent templete. I love it very much! . <i class="mdi mdi-format-quote-close"></i>
+                </p>
+                <p>
+                    - Hyper Admin User
+                </p>
+            </div>
+            <!-- end auth-user-testimonial-->
+        </div>
+        <!-- end Auth fluid right content -->
+    </div>
+    <!-- end auth-fluid-->
+
+    <!-- App js -->
+    <script src="../assets/js/app.min.js"></script>
+
+    <script>
+        $("#loginBtn").click(function() {
+            //将请求提交到哪
+            //当前目标：web/login.html
+            //目标位置：user/reg.do
+            var url = "../user/login";
+            var data = $("#form-login").serialize();
+            console.log("登录参数：" + data);
+            $.ajax({
+                "url": url,
+                "data": data,
+                "type": "POST",
+                "dataType": "json",
+                "success": function(json) {
+                    if (json.state == 200) {
+                        alert("登录成功！")
+                        window.location.href = "index.html"
+                            //将头像路径存到Cookie
+                        $.cookie("avatar", json.data.avatar, {
+                            expires: 7
+                        });
+                        $.cookie("username", json.data.username, {
+                            expires: 7
+                        });
+                        console.log("登录成功，将头像路径存到Cookie" + $.cookie("avatar"));
+                    } else {
+                        alert(json.message);
+                    }
+                }
+            })
+        })
+    </script>
+    <script src="../assets/js/jquery.cookie.js"></script>
+</body>
+
+</html>

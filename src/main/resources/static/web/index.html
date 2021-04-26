@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>网站管理系统后台v1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../assets/images/favicon.png">
+
+    <!-- Summernote css -->
+    <link href="../assets/css/vendor/summernote-bs4.css" rel="stylesheet" type="text/css" />
+    <!-- SimpleMDE css -->
+    <link href="../assets/css/vendor/simplemde.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="../css/bootstrap-fileinput.css" rel="stylesheet">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div class="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left-side-menu">
+            <div class="slimscroll-menu" id="left-side-menu-container">
+                <!-- LOGO -->
+                <a href="index.html" class="logo text-center">
+                    <span class="logo-lg">                       
+                        网站管理系统后台v1
+                    </span>
+                </a>
+                <!--- Sidemenu -->
+                <ul class="metismenu side-nav">
+                    <li class="side-nav-title side-nav-item">控制台</li>
+                    <li class="side-nav-item">
+                        <a href="javascript: void(0);" class="side-nav-link">
+                            <i class="dripicons-meter"></i>
+                            <span class="badge badge-success float-right">3</span>
+                            <span> 信息管理台 </span>
+                        </a>
+                        <ul class="side-nav-second-level" aria-expanded="false">
+                            <li>
+                                <a href="Carouselmap.html">轮播图</a>
+                            </li>
+                            <li>
+                                <a href="navigationbar.html">导航栏</a>
+                            </li>
+                            <li>
+                                <a href="index.html">发布文章</a>
+                            </li>
+                            <li>
+                                <a href="articlelist.html">文章列表</a>
+                            </li>
+                            <li>
+                                <a href="briefintroduction.html">公司简介</a>
+                            </li>
+                            <li>
+                                <a href="notice.html">官网公告</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <!-- Sidebar -left -->
+        </div>
+        <!-- Left Sidebar End -->
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+                <!-- Topbar Start -->
+                <div class="navbar-custom">
+                    <ul class="list-unstyled topbar-right-menu float-right mb-0">
+
+                        <li class="dropdown notification-list">
+                            <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <span class="account-user-avatar"> 
+                                        <img id="avatar" src="../assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
+                                    </span>
+                                <span>
+                                        <span  class="account-user-name">超级管理员</span>
+                                <span id="username" class="account-position">admin</span>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
+                                <!-- item-->
+                                <div class=" dropdown-header noti-title">
+                                    <h6 class="text-overflow m-0">欢迎使用本系统 !</h6>
+                                </div>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="mdi mdi-account-circle mr-1"></i>
+                                    <span>个人资料</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="mdi mdi-account-edit mr-1"></i>
+                                    <span>修改密码</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="mdi mdi-lifebuoy mr-1"></i>
+                                    <span>更换头像</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="mdi mdi-lock-outline mr-1"></i>
+                                    <span>退出登录</span>
+                                </a>
+
+
+
+                            </div>
+                        </li>
+
+                    </ul>
+                    <button class="button-menu-mobile open-left disable-btn">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+
+                </div>
+                <!-- end Topbar -->
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">首页</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">信息管理台</a></li>
+                                        <li class="breadcrumb-item active">发布文章</li>
+                                    </ol>
+                                </div>
+                                <h4 class="page-title">发布文章</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="col-12">
+                                        <div class="form-group mb-2">
+                                            <label for="title">文章标题</label>
+                                            <input type="text" id="title" class="form-control" maxlength="30" placeholder="最多输入30个字">
+                                        </div>
+                                        <div class="form-group mb-2">
+                                            <label for="tag">文章标签</label>
+                                            <input type="text" id="tag" class="form-control" maxlength="8" placeholder="最多输入8个字">
+                                        </div>
+                                        <div class="form-group mb-2">
+                                            <label for="introduction">文章简介</label>
+                                            <input type="text" id="introduction" class="form-control" maxlength="60" placeholder="最多输入60个字">
+                                        </div>
+                                    </div>
+                                    <!-- basic div1-->
+                                    <div id="div1" style="margin-top: 2%;">
+                                        <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+                                    </div>
+                                </div>
+
+                                <div class="col-9">
+                                    <div class="card">
+
+                                    </div>
+                                    <!-- end card-->
+                                </div>
+
+                                <!-- 上传封面图 -->
+                                <div class="col-6">
+                                    <form id="form-change-avatar" class="form-horizontal" role="form">
+                                     <div class="form-group">
+                                        <label class="col-md-6 control-label">上传封面:</label>
+                                        <div class="clearfix"></div>
+                                        <div class="col-md-offset-2 col-md-4">
+                                            <input id="filename" type="file" name="file" onchange="activityimg()">
+                                            </div>
+                                        </div>
+                                    </form>
+                                <div id="nr"></div>
+                                <!-- 提交按钮 -->
+                                <div class="col-4" style="margin-left: 0.5%;margin-top: 1%;">
+                                    <button onclick="obtain()" type="button" class="btn btn-success">提交</button>
+                                </div>
+                                <div style="height: 10px;"></div>
+                            </div>
+                            <!-- end card-->
+                        </div>
+                        <!-- end col-->
+                    </div>
+                    <!-- end row -->
+                </div>
+                <!-- container -->
+
+            </div>
+            <!-- content -->
+
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            2021-- © Hyper - Coderthemes.com
+                        </div>
+
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+
+    </div>
+    <!-- END wrapper -->
+
+    </div>
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- App js -->
+    <script src="../assets/js/app.min.js"></script>
+
+    <!-- wangEditor.js -->
+    <script src="../js/wangEditor.js"></script>
+
+
+    <!-- 引入 wangEditor.min.js -->
+    <script type="text/javascript">
+        //文章封面
+        var cover;
+        var E = window.wangEditor
+        var editor = new E('#div1')
+            // 隐藏“网络图片”tab
+        editor.config.uploadImgShowBase64 = true
+            // 设置编辑区域高度为 500px
+        editor.config.height = 400
+        editor.config.uploadImgServer = '/article/insertImg'
+        editor.config.uploadFileName = 'file';
+        editor.config.uploadImgHooks = {
+            customInsert: function (insertImg, result, editor) {
+                var url =result.data;
+                insertImg(url);
+            }
+        }
+        editor.create()
+
+        //上传封面
+        function activityimg() {
+            console.log(new FormData($("#form-change-avatar")[0]))
+
+            $.ajax({
+                "url":"/article/insertImg",
+                "data":new FormData($("#form-change-avatar")[0]),
+                "type":"post",
+                "dataType":"json",
+                "contentType":false,
+                "processData":false,
+                "success":function(json) {
+                    if (json.state == 200) {
+                        console.log("图片上传成功")
+                        console.log(json.data)
+                        cover = json.data
+                        // $("#activityimgname").html(json.data)
+                        // $("#img-avatar").attr("src", json.data);
+                    } else {
+                        alert(json.message);
+                    }
+                },
+
+            });
+        };
+
+        function obtain() {
+            //获取文章标题
+            var title = $("#title").val()
+            var tag = $("#tag").val()
+            var introduction = $("#introduction").val()
+            var conten = editor.txt.html()
+            console.log("content:" + conten)
+            console.log("title:" + title)
+            console.log("tag:" + tag)
+            console.log("introduction:" + introduction)
+            console.log("cover:" + cover)
+            var data = {
+                title:title,
+                tag: tag,
+                introduction: introduction,
+                conten: conten,
+                cover,
+                Hotlist: 0,//默认为0
+                mun: 0,//默认为0
+                commentID: 0//默认为0,
+            }
+            console.log(data)
+            $.ajax({
+                "url":"/article/insert",
+                "data":data,
+                "type": "post",
+                "dataType": "json",
+                "success":function(json) {
+                    if (json.state == 200) {
+                        alert("上传成功！！！")
+                        location.reload()
+                    } else {
+                        alert(json.message);
+                    }
+                },
+
+            });
+        }
+
+
+        //设置头像
+        $(document).ready(function () {
+            if ($.cookie('avatar') != null){
+                $("#avatar").attr('src',$.cookie('avatar'))
+            }
+            $("#username").html($.cookie('username'))
+        })
+    </script>
+    <script src="../assets/js/jquery.cookie.js"></script>
+</body>
+
+</html>

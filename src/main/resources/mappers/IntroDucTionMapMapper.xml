@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//ibatis.apache.org//DTD Mapper 3.0//EN"      
+ "http://ibatis.apache.org/dtd/ibatis-3-mapper.dtd">
+
+<mapper namespace="vip.waitfor.website.mapper.IntroDucTionMapper">
+
+	<!-- 插入图片数据 -->
+	<!-- Integer insert(IntroDucTion introDucTion);-->
+	<insert id="insert"
+			useGeneratedKeys="true"
+			keyProperty="id">
+		INSERT INTO introduction (
+			id,content,
+			created_user, created_time,
+			modified_user, modified_time
+		) VALUES (
+			#{id},#{content},
+			#{createdUser}, #{createdTime},
+			#{modifiedUser}, #{modifiedTime}
+		)
+	</insert>
+
+
+	<!-- 查询所有轮播图片 -->
+	<!-- IntroDucTion find(Integer id);;-->
+	<select id="find"
+			resultType="vip.waitfor.website.entity.IntroDucTion">
+		SELECT
+			id,content
+		FROM
+			introduction
+		WHERE
+			id=#{id}
+	</select>
+
+	<!-- 更新数据 -->
+	<!-- Integer updateArticle(IntroDucTion introDucTion); -->
+	<update id="updateArticle">
+		UPDATE
+		introduction
+		SET
+		content=#{content},
+		modified_user=#{modifiedUser},
+		modified_time=#{modifiedTime}
+		WHERE
+		id=#{id}
+	</update>
+
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+

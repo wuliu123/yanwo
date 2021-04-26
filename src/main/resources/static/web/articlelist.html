@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>网站管理系统后台v1</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
+    <meta content="Coderthemes" name="author" />
+    <!-- App favicon -->
+    <link rel="shortcut icon" href="../assets/images/favicon.png">
+
+    <!-- Summernote css -->
+    <link href="../assets/css/vendor/summernote-bs4.css" rel="stylesheet" type="text/css" />
+    <!-- SimpleMDE css -->
+    <link href="../assets/css/vendor/simplemde.min.css" rel="stylesheet" type="text/css" />
+
+    <!-- App css -->
+    <link href="../assets/css/icons.min.css" rel="stylesheet" type="text/css" />
+    <link href="../assets/css/app.min.css" rel="stylesheet" type="text/css" />
+
+    <link href="../css/bootstrap-fileinput.css" rel="stylesheet">
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+    <!-- end demo js-->
+    <style>
+        .page-item.active .page-link {
+            z-index: 1;
+            color: #fff;
+            background-color: #727cf5;
+            border-color: white;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Begin page -->
+    <div class="wrapper">
+        <!-- ========== Left Sidebar Start ========== -->
+        <div class="left-side-menu">
+            <div class="slimscroll-menu" id="left-side-menu-container">
+                <!-- LOGO -->
+                <a href="index.html" class="logo text-center">
+                    <span class="logo-lg">                       
+                        网站管理系统后台v1
+                    </span>
+                </a>
+                <!--- Sidemenu -->
+                <ul class="metismenu side-nav">
+                    <li class="side-nav-title side-nav-item">控制台</li>
+                    <li class="side-nav-item">
+                        <a href="javascript: void(0);" class="side-nav-link">
+                            <i class="dripicons-meter"></i>
+                            <span class="badge badge-success float-right">3</span>
+                            <span> 信息管理台 </span>
+                        </a>
+                        <ul class="side-nav-second-level" aria-expanded="false">
+                            <li>
+                                <a href="Carouselmap.html">轮播图</a>
+                            </li>
+                            <li>
+                                <a href="navigationbar.html">导航栏</a>
+                            </li>
+                            <li>
+                                <a href="index.html">发布文章</a>
+                            </li>
+                            <li>
+                                <a href="articlelist.html">文章列表</a>
+                            </li>
+                            <li>
+                                <a href="briefintroduction.html">公司简介</a>
+                            </li>
+                            <li>
+                                <a href="notice.html">官网公告</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="clearfix"></div>
+            </div>
+            <!-- Sidebar -left -->
+        </div>
+        <!-- Left Sidebar End -->
+
+        <!-- ============================================================== -->
+        <!-- Start Page Content here -->
+        <!-- ============================================================== -->
+
+        <div class="content-page">
+            <div class="content">
+                <!-- Topbar Start -->
+                <div class="navbar-custom">
+                    <ul class="list-unstyled topbar-right-menu float-right mb-0">
+
+                        <li class="dropdown notification-list">
+                            <a class="nav-link dropdown-toggle nav-user arrow-none mr-0" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
+                                <span class="account-user-avatar"> 
+                                        <img src="../assets/images/users/avatar-1.jpg" alt="user-image" class="rounded-circle">
+                                    </span>
+                                <span>
+                                        <span class="account-user-name">超级管理员</span>
+                                <span class="account-position" id="usernameadmin">admin</span>
+                                </span>
+                            </a>
+                            <div class="dropdown-menu dropdown-menu-right dropdown-menu-animated topbar-dropdown-menu profile-dropdown">
+                                <!-- item-->
+                                <div class=" dropdown-header noti-title">
+                                    <h6 class="text-overflow m-0">欢迎使用本系统 !</h6>
+                                </div>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="mdi mdi-account-circle mr-1"></i>
+                                    <span>个人资料</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="mdi mdi-account-edit mr-1"></i>
+                                    <span>修改密码</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="mdi mdi-lifebuoy mr-1"></i>
+                                    <span>更换头像</span>
+                                </a>
+
+                                <!-- item-->
+                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                    <i class="mdi mdi-lock-outline mr-1"></i>
+                                    <span>退出登录</span>
+                                </a>
+
+
+
+                            </div>
+                        </li>
+
+                    </ul>
+                    <button class="button-menu-mobile open-left disable-btn">
+                            <i class="mdi mdi-menu"></i>
+                        </button>
+
+                </div>
+                <!-- end Topbar -->
+
+                <!-- Start Content-->
+                <div class="container-fluid">
+
+                    <!-- start page title -->
+                    <div class="row">
+                        <div class="col-12">
+                            <div class="page-title-box">
+                                <div class="page-title-right">
+                                    <ol class="breadcrumb m-0">
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">首页</a></li>
+                                        <li class="breadcrumb-item"><a href="javascript: void(0);">信息管理台</a></li>
+                                        <li class="breadcrumb-item active">文章列表</li>
+                                    </ol>
+                                </div>
+                                <h4 class="page-title">文章列表</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- end page title -->
+
+                    <div class="row">
+                        <div class="col-xl-12">
+                            <div class="card">
+                                <div class="card-body">
+                                    <div class="table-responsive-sm">
+                                        <table class="table table-centered mb-0">
+                                            <thead>
+                                                <tr>
+                                                    <th>文章标题</th>
+                                                    <th>文章标签</th>
+                                                    <th>文章状态</th>
+                                                    <th>发布时间</th>
+                                                    <th>是否上热榜</th>
+                                                    <th>操作</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="article">
+
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <!-- end table-responsive-->
+
+                                </div>
+                                <!-- end card body-->
+                            </div>
+                            <!-- end card -->
+                        </div>
+                        <!-- end col-->
+                        <!-- end col-->
+                    </div>
+                    <!-- end row -->
+                </div>
+
+                <!-- container -->
+
+            </div>
+            <!-- content -->
+
+            <div class="col-md-12">
+                <div class="col-md-4" style="margin: 0 auto;">
+                    <div style="margin-top: 10px;margin:0 auto">
+                        <div id="pagination"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Footer Start -->
+            <footer class="footer">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-md-6">
+                            2021-- © Hyper - Coderthemes.com
+                        </div>
+
+                    </div>
+                </div>
+            </footer>
+            <!-- end Footer -->
+
+        </div>
+
+        <!-- ============================================================== -->
+        <!-- End Page content -->
+        <!-- ============================================================== -->
+
+
+    </div>
+    <!-- END wrapper -->
+
+
+
+
+    <!-- /Right-bar -->
+
+
+    <!-- App js -->
+    <script src="../assets/js/app.min.js"></script>
+
+    <!-- wangEditor.js -->
+    <script src="../js/wangEditor.js"></script>
+    <script src="../js/bootstrap-fileinput.js"></script>
+    <script src="../js/pages.js"></script>
+    <!-- 引入 wangEditor.min.js -->
+    <script type="text/javascript">
+        //加载文章
+        $(document).ready(function() {
+            findAll()
+            $('#usernameadmin').html($.cookie('username'))
+            var page = 1
+            $.ajax({
+                "url": "../article/find",
+                "type": "POST",
+                "data": {
+                    page: page,
+                    size: 10
+                },
+                "datatype": "json",
+                "success": function(json) {
+                    var result = json.data
+                    console.log(result)
+                    //取整页数
+                    var pages = Math.round(result.total / 10)
+                    console.log(pages)
+                    if (pages > 1){
+                        $('#pagination').pagination({
+                            pages: pages,
+                            edges: 2,
+                            cssStyle: 'pagination-sm',
+                            displayedPages: 5,
+                            onPageClick: function(pageNumber, event) {
+                                //点击时调用
+                                // alert(pageNumber);
+                                findgoods(pageNumber)
+                            },
+                            onInit: function(getid) {
+                                //刷新时调用
+                                //alert(getid);
+                            }
+
+                        });
+                    }
+                },
+            });
+        });
+
+
+        function findgoods(page) {
+            $.ajax({
+                "url": "../article/find",
+                "type": "POST",
+                "data": {
+                    page: page,
+                    size: 10
+                },
+                "datatype": "json",
+                "success": function(json) {
+                    var result = json.data
+                    //取整页数
+                    var pages = Math.round(result.total / 10)
+                    console.log(pages)
+                    //志愿者数据
+                    var data = result.list;
+                    console.log(data);
+                    var resultlength = data.length
+                    $("#article").empty();
+                    $("#pages").empty();
+                    for (let i = 0; i < resultlength; i++) {
+                        var html =
+                            '<tr>'+
+                            '<td>#{title}</td>'+
+                            '<td>#{tag}</td>'+
+                            '<td>#{isDelete}</td>'+
+                            '<td>#{createdTime}</td>'+
+                            '<td>'+
+                            '<div>'+
+                            '<input type="checkbox" id="switch1" checked data-switch="success" />'+
+                            '<label for="switch1" data-on-label="Yes" data-off-label="No" class="mb-0 d-block"></label>'+
+                            ' </div>'+
+                            '</td>'+
+                            '<td class="table-action">'+
+                            '<button type="button" class="btn btn-danger" onclick="deletearticle(#{wid})">删除</button> '+
+                            '<a href="updatearticlelist.html?wid=#{wid2}"><button type="button" class="btn btn-success">修改</button></a>'+
+                            '</td>'+
+                            '</tr>';
+
+                        if (data[i].isDelete == 1) {
+                            console.log("修改样式方法运行了")
+                            html = html.replace("#{isDelete}", "文章已下线");
+                            console.log(data[i].isDelete)
+                        } else if (data[i].isDelete == 0) {
+                            console.log("不修改样式方法运行了")
+                            html = html.replace("#{isDelete}", "文章已上线");
+                        }
+
+                        html = html.replace("#{wid}", data[i].wid);
+                        html = html.replace("#{wid2}", data[i].wid);
+                        html = html.replace("#{title}", data[i].title);
+                        html = html.replace("#{tag}", data[i].tag);
+                        html = html.replace("#{createdTime}", timeFmt(data[i].createdTime));
+                        $("#article").append(html);
+                    }
+
+
+                },
+            });
+        }
+
+        function findAll() {
+            var page = 1
+            $.ajax({
+                "url": "../article/find",
+                "type": "POST",
+                "data": {
+                    page: page,
+                    size: 10
+                },
+                "datatype": "json",
+                "success": function(json) {
+                    var result = json.data
+                    //取整页数
+                    var pages = Math.round(result.total / 10)
+                    console.log(pages)
+                    //志愿者数据
+                    var data = result.list;
+                    console.log(data);
+                    var resultlength = data.length
+                    $("#article").empty();
+                    $("#pages").empty();
+                    for (let i = 0; i < resultlength; i++) {
+                        var html =
+                            '<tr>'+
+                            '<td>#{title}</td>'+
+                            '<td>#{tag}</td>'+
+                            '<td>#{isDelete}</td>'+
+                            '<td>#{createdTime}</td>'+
+                            '<td>'+
+                            '<div>'+
+                            '<input type="checkbox" id="switch1" checked data-switch="success" />'+
+                            '<label for="switch1" data-on-label="Yes" data-off-label="No" class="mb-0 d-block"></label>'+
+                            ' </div>'+
+                            '</td>'+
+                            '<td class="table-action">'+
+                            '<button type="button" class="btn btn-danger" onclick="deletearticle(#{wid})">删除</button> '+
+                            '<a href="updatearticlelist.html?wid=#{wid2}"><button type="button" class="btn btn-success">修改</button></a>'+
+                            '</td>'+
+                            '</tr>';
+
+                        if (data[i].isDelete == 1) {
+                            console.log("修改样式方法运行了")
+                            html = html.replace("#{isDelete}", "文章已下线");
+                            console.log(data[i].isDelete)
+                        } else if (data[i].isDelete == 0) {
+                            console.log("不修改样式方法运行了")
+                            html = html.replace("#{isDelete}", "文章已上线");
+                        }
+
+                        html = html.replace("#{wid}", data[i].wid);
+                        html = html.replace("#{wid2}", data[i].wid);
+                        html = html.replace("#{title}", data[i].title);
+                        html = html.replace("#{tag}", data[i].tag);
+                        html = html.replace("#{createdTime}", timeFmt(data[i].createdTime));
+                        $("#article").append(html);
+                    }
+
+
+                },
+            });
+        }
+
+
+        //删除文章
+        function deletearticle(id) {
+            $.ajax({
+                url: '../article/Delete/' + id,
+                type: 'GET',
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(json) {
+                    location.reload()
+                    alert("删除成功")
+                },
+            });
+        }
+
+
+        //时间格式化函数
+        function timeFmt(value) {
+            var date=new Date(value);
+            var year=date.getFullYear();
+            var month=date.getMonth()+1;
+            month=month>9?month:('0'+month);
+            var day=date.getDate();
+            day=day>9?day:('0'+day);
+            var hh=date.getHours();
+            hh=hh>9?hh:('0'+hh);
+            var mm=date.getMinutes();
+            mm=mm>9?mm:('0'+mm);
+            var ss=date.getSeconds();
+            ss=ss>9?ss:('0'+ss);
+            var time=year+'-'+month+'-'+day;
+            return time;
+        };
+
+    </script>
+    <script src="../assets/js/jquery.cookie.js"></script>
+</body>
+
+</html>

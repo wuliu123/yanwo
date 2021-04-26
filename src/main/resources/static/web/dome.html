@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/wangEditor.js"></script>
+    <script src="http://www.jq22.com/jquery/jquery-1.10.2.js"></script>
+</head>
+
+<body>
+    <br> <br> <br>
+    <div id="div1">
+        <p>欢迎使用 <b>wangEditor</b> 富文本编辑器</p>
+    </div>
+
+    <div id="nr">
+        111
+    </div>
+
+    <button onclick="obtain()">获取文本内容</button>
+
+    <!-- 引入 wangEditor.min.js -->
+    <script type="text/javascript">
+        var E = window.wangEditor
+        var editor = new E('#div1')
+
+        // 隐藏“网络图片”tab
+        editor.config.uploadImgShowBase64 = true
+            // 设置编辑区域高度为 500px
+        editor.config.height = 600
+        editor.create()
+        editor.txt.html('<p>用 JS 设置的内容</p>') // 重新设置编辑器内容
+        function obtain() {
+            var text = editor.txt.html()
+
+            var a = text; //news_abstract为p标签的class值
+            $("#nr").html(a);
+
+            console.log("content:" + text)
+        }
+    </script>
+</body>
+
+</html>
