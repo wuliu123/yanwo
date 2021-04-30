@@ -25,4 +25,13 @@ public class ArticleMapperTestCase {
         List<Article> data = articleMapper.findAllArticle();
         System.err.println(data);
     }
+
+    /**
+     * 修改是否上热榜
+     */
+    @Test
+    public void update() {
+        Integer rows = articleMapper.updateHotlist(45,1);
+        System.err.println(rows);
+    }
 }

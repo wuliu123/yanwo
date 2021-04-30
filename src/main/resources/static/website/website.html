@@ -40,7 +40,7 @@
                     <li><a href="website.html">首页</a></li>
                     <li><a href="list.html">燕窝做法</a></li>
                     <li><a href="list2.html">燕窝百科</a></li>
-                    <li><a href="about.html">关于我</a></li>
+<!--                    <li><a href="about.html">关于我</a></li>-->
                 </ul>
             </nav>
             <div class="searchico"></div>
@@ -492,7 +492,7 @@
 
                     for (let i=0;i<resultlength;i++){
                         var html =  '<li>'+
-                        '<h3 class="blogtitle"><a href="#" target="_blank">#{title}</a></h3>'+
+                        '<h3 class="blogtitle"><a href="info.html?wid=#{wid2}" target="_blank">#{title}</a></h3>'+
                         '<span class="blogpic imgscale"><a href="#" title=""><img src="#{cover}" alt=""></a></span>'+
                         '<p class="blogtext">#{introduction}</p>'+
                         '<p class="bloginfo"><i class="avatar"><img src="../images/avatar.jpg"></i><span>#{createdUser}</span><span>#{createdTime}</span></p>'+
@@ -500,6 +500,7 @@
                         '</li>';
 
                         html = html.replace("#{wid}", result[i].wid);
+                        html = html.replace("#{wid2}", result[i].wid);
                         html = html.replace("#{title}", result[i].title);
                         html = html.replace("#{cover}", result[i].cover);
                         html = html.replace("#{introduction}", result[i].introduction);

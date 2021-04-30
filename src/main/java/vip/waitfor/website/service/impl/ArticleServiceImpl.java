@@ -5,8 +5,6 @@ import com.github.pagehelper.PageInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import vip.waitfor.website.entity.Article;
-import vip.waitfor.website.entity.CarouselMap;
-import vip.waitfor.website.entity.User;
 import vip.waitfor.website.mapper.ArticleMapper;
 import vip.waitfor.website.service.IArticleService;
 import vip.waitfor.website.service.exception.*;
@@ -86,6 +84,30 @@ public class ArticleServiceImpl implements IArticleService {
     }
 
     @Override
+    public void updateHot(Integer wid) {
+        Integer Hotlist = null;
+        //根据user.getId()查询用户数据
+        Article data = findArticle(wid);
+        //判断数据是否为null
+        if (data == null) {
+            //是：抛出：UserNotFoundException
+            throw new UserNotFoundException("修改文章失败！您尝试访问的数据不存在");
+        }
+
+        if(data.getHotlist() == 0){
+            Hotlist = 1;
+        }
+
+        if(data.getHotlist() == 1){
+            Hotlist = 0;
+        }
+        System.err.println(wid);
+        System.err.println(Hotlist);
+        // 执行修改：
+        updateHotlist(wid,Hotlist);
+    }
+
+    @Override
     public void delete(Integer id) throws ArticleNotFoundExcption, DeleterException {
         // 根据id查询数据：findById(id)
         Article data = findArticle(id);
@@ -158,6 +180,22 @@ public class ArticleServiceImpl implements IArticleService {
     private void updateArticle(Article article){
         //执行更新，获取返回值
         Integer rows = articleMapper.updateArticle(article);
+        //判断返回值，出错则抛出“更新时的未知错误异常”
+        if (rows != 1) {
+            throw new UpdateException("更新文章数据时出现未知错误！！！");
+        }
+    };
+
+
+
+    /**
+     * 根据文章wid 修改文章是否上热榜
+     * @param wid
+     * @return
+     */
+    private void updateHotlist(Integer wid,Integer Hotlist){
+        //执行更新，获取返回值
+        Integer rows = articleMapper.updateHotlist(wid,Hotlist);
         //判断返回值，出错则抛出“更新时的未知错误异常”
         if (rows != 1) {
             throw new UpdateException("更新文章数据时出现未知错误！！！");

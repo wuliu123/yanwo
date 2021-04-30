@@ -164,6 +164,18 @@ public class ArticleController extends BaseController{
         return new ResponseResult<>(SUCCESS);
     }
 
+    @PostMapping("/changeHotlist/{wid}")
+    public ResponseResult<Void> changeHotlist(@PathVariable("wid") Integer wid) {
+        System.err.println("wid:" + wid);
+        System.err.println("修改热榜运行了");
+        //执行修改
+        iArticleService.updateHot(wid);
+
+        //返回
+        return new ResponseResult<>(SUCCESS);
+    }
+
+
 
 
     @GetMapping("/Delete/{id}")

@@ -125,6 +125,18 @@
 			wid=#{wid}
 	</update>
 
+	<!-- 根据文章wid 修改文章是否上热榜 -->
+	<!-- Integer updateHotlist(Integer wid,String Hotlist); -->
+	<update id="updateHotlist">
+		UPDATE
+			article
+		SET
+			hotlist=#{Hotlist}
+		WHERE
+			wid=#{wid}
+	</update>
+
+
 	<!-- 根据id删除图片信息 -->
 	<!-- Integer deleteById(Integer id) -->
 	<delete id="deleteById">

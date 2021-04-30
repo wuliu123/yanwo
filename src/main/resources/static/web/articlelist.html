@@ -287,6 +287,7 @@
                     }
                 },
             });
+
         });
 
 
@@ -318,10 +319,7 @@
                             '<td>#{isDelete}</td>'+
                             '<td>#{createdTime}</td>'+
                             '<td>'+
-                            '<div>'+
-                            '<input type="checkbox" id="switch1" checked data-switch="success" />'+
-                            '<label for="switch1" data-on-label="Yes" data-off-label="No" class="mb-0 d-block"></label>'+
-                            ' </div>'+
+                            '<button type="button" class="#{class}" onclick="changeHotlist(#{wid3})">#{text}</button>'+
                             '</td>'+
                             '<td class="table-action">'+
                             '<button type="button" class="btn btn-danger" onclick="deletearticle(#{wid})">删除</button> '+
@@ -338,8 +336,20 @@
                             html = html.replace("#{isDelete}", "文章已上线");
                         }
 
+                        if (data[i].hotlist == 1) {
+                            html = html.replace("#{class}", "btn btn-success");
+                            html = html.replace("#{text}", "已上");
+                            console.log("上热榜")
+                        } else if (data[i].hotlist == 0) {
+                            html = html.replace("#{class}", "btn btn-danger");
+                            html = html.replace("#{text}", "否");
+                            console.log("没上热榜")
+                        }
+
+
                         html = html.replace("#{wid}", data[i].wid);
                         html = html.replace("#{wid2}", data[i].wid);
+                        html = html.replace("#{wid3}", data[i].wid);
                         html = html.replace("#{title}", data[i].title);
                         html = html.replace("#{tag}", data[i].tag);
                         html = html.replace("#{createdTime}", timeFmt(data[i].createdTime));
@@ -380,10 +390,7 @@
                             '<td>#{isDelete}</td>'+
                             '<td>#{createdTime}</td>'+
                             '<td>'+
-                            '<div>'+
-                            '<input type="checkbox" id="switch1" checked data-switch="success" />'+
-                            '<label for="switch1" data-on-label="Yes" data-off-label="No" class="mb-0 d-block"></label>'+
-                            ' </div>'+
+                            '<button type="button" class="#{class}" onclick="changeHotlist(#{wid3})">#{text}</button>'+
                             '</td>'+
                             '<td class="table-action">'+
                             '<button type="button" class="btn btn-danger" onclick="deletearticle(#{wid})">删除</button> '+
@@ -400,8 +407,20 @@
                             html = html.replace("#{isDelete}", "文章已上线");
                         }
 
+                        if (data[i].hotlist == 1) {
+                            html = html.replace("#{class}", "btn btn-success");
+                            html = html.replace("#{text}", "已上");
+                            console.log("上热榜")
+                        } else if (data[i].hotlist == 0) {
+                            html = html.replace("#{class}", "btn btn-danger");
+                            html = html.replace("#{text}", "否");
+                            console.log("没上热榜")
+                        }
+
+
                         html = html.replace("#{wid}", data[i].wid);
                         html = html.replace("#{wid2}", data[i].wid);
+                        html = html.replace("#{wid3}", data[i].wid);
                         html = html.replace("#{title}", data[i].title);
                         html = html.replace("#{tag}", data[i].tag);
                         html = html.replace("#{createdTime}", timeFmt(data[i].createdTime));
@@ -426,6 +445,22 @@
                 success: function(json) {
                     location.reload()
                     alert("删除成功")
+                },
+            });
+        }
+
+        function changeHotlist(wid) {
+            console.log("修改热榜运行了" +wid)
+            $.ajax({
+                url: '../article/changeHotlist/' + wid,
+                type: 'POST',
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(json) {
+                    location.reload()
+                    alert("修改成功")
                 },
             });
         }

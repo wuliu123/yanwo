@@ -58,6 +58,16 @@ public interface IArticleService {
     void update(Article article);
 
 
+
+
+    /**
+     * 根据文章wid 修改文章是否上热榜
+     * @param wid
+     * @return
+     */
+    void updateHot(Integer wid);
+
+
     /**
      * 根据id删除数据
      *
