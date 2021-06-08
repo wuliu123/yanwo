@@ -125,7 +125,7 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a onclick="outLogin()" class="dropdown-item notify-item">
                                     <i class="mdi mdi-lock-outline mr-1"></i>
                                     <span>退出登录</span>
                                 </a>
@@ -465,6 +465,23 @@
             });
         }
 
+
+        //退出登录
+        function outLogin() {
+            $.ajax({
+                "url":"../user/outLogin",
+                "type": "post",
+                "dataType": "json",
+                "success":function(json) {
+                    if (json.state == 200) {
+                        alert("退出成功！！！")
+                        location.reload()
+                    } else {
+                        alert(json.message);
+                    }
+                },
+            });
+        }
 
         //时间格式化函数
         function timeFmt(value) {

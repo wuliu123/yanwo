@@ -116,7 +116,7 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a onclick="outLogin()" class="dropdown-item notify-item">
                                     <i class="mdi mdi-lock-outline mr-1"></i>
                                     <span>退出登录</span>
                                 </a>
@@ -272,8 +272,7 @@
 
         //上传封面
         function activityimg() {
-            console.log(new FormData($("#form-change-avatar")[0]))
-
+            // console.log(new FormData($("#form-change-avatar")[0]))
             $.ajax({
                 "url":"/article/insertImg",
                 "data":new FormData($("#form-change-avatar")[0]),
@@ -296,17 +295,18 @@
             });
         };
 
+        //上传文章
         function obtain() {
             //获取文章标题
             var title = $("#title").val()
             var tag = $("#tag").val()
             var introduction = $("#introduction").val()
             var conten = editor.txt.html()
-            console.log("content:" + conten)
-            console.log("title:" + title)
-            console.log("tag:" + tag)
-            console.log("introduction:" + introduction)
-            console.log("cover:" + cover)
+            // console.log("content:" + conten)
+            // console.log("title:" + title)
+            // console.log("tag:" + tag)
+            // console.log("introduction:" + introduction)
+            // console.log("cover:" + cover)
             var data = {
                 title:title,
                 tag: tag,
@@ -317,7 +317,7 @@
                 mun: 0,//默认为0
                 commentID: 0//默认为0,
             }
-            console.log(data)
+            // console.log(data)
             $.ajax({
                 "url":"/article/insert",
                 "data":data,
@@ -343,6 +343,24 @@
             }
             $("#username").html($.cookie('username'))
         })
+
+
+        //退出登录
+        function outLogin() {
+            $.ajax({
+                "url":"../user/outLogin",
+                "type": "post",
+                "dataType": "json",
+                "success":function(json) {
+                    if (json.state == 200) {
+                        alert("退出成功！！！")
+                        location.reload()
+                    } else {
+                        alert(json.message);
+                    }
+                },
+            });
+        }
     </script>
     <script src="../assets/js/jquery.cookie.js"></script>
 </body>

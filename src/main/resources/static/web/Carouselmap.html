@@ -121,7 +121,7 @@
                                 </a>
 
                                 <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
+                                <a onclick="outLogin()" class="dropdown-item notify-item">
                                     <i class="mdi mdi-lock-outline mr-1"></i>
                                     <span>退出登录</span>
                                 </a>
@@ -166,7 +166,7 @@
                                     <thead>
                                     <tr>
                                         <th>轮播图片</th>
-                                        <th>图片地址</th>
+                                        <th>上传时间</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
@@ -322,6 +322,24 @@
                 success: function(json) {
                     location.reload()
                     alert("删除成功")
+                },
+            });
+        }
+
+
+        //退出登录
+        function outLogin() {
+            $.ajax({
+                "url":"../user/outLogin",
+                "type": "post",
+                "dataType": "json",
+                "success":function(json) {
+                    if (json.state == 200) {
+                        alert("退出成功！！！")
+                        location.reload()
+                    } else {
+                        alert(json.message);
+                    }
                 },
             });
         }
